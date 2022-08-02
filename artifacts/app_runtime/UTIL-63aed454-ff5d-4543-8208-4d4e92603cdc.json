@@ -1,0 +1,530 @@
+{
+	"id": "63aed454-ff5d-4543-8208-4d4e92603cdc",
+	"createdAt": "2022-02-04T15:51:12.006Z",
+	"updatedAt": "2022-08-02T10:12:36.163Z",
+	"createdBy": "luuk.wosten@neptune-software.com",
+	"changedBy": "kristin.eliassen@neptune-software.com",
+	"objects": [
+		{
+			"fieldNo": 99999,
+			"data": [
+				{
+					"fieldNo": "1bc328e9-4aae-48e3-b738-5f47a9486638",
+					"fieldName": "Webcam",
+					"fieldParent": 99999,
+					"fieldType": "neptune.folder",
+					"script": "",
+					"request": [],
+					"response": [],
+					"attributes": [],
+					"data": [
+						{
+							"fieldNo": "9d71fa82-2317-4414-dbff-5066b7e2387f",
+							"fieldName": "HOW_TO_USE",
+							"fieldParent": "1bc328e9-4aae-48e3-b738-5f47a9486638",
+							"fieldType": "neptune.Script",
+							"script": [
+								"==OBJECT STRING==",
+								"//HOW TO USE THE BUILDING BLOCK",
+								"// OPEN THE DIALOG BOX diaWebCam WITH diaWebCam.open()",
+								"// START THE WEBCAM BY CALLING THE FUNCTION startWebCam()",
+								"// Allow the Permission to access WebCam on Browsers",
+								"",
+								"// LIMITATIONS",
+								"// WORKS on Google Chrome, Firefox, Opera, Safari and Edge",
+								"// DOES NOT WORK on IE 11 and below",
+								"",
+								"// Using Captured Image",
+								"// Image data will be available as Base64 encoded string with the function imgCam.getSrc()"
+							],
+							"request": [],
+							"response": [],
+							"attributes": [],
+							"data": []
+						},
+						{
+							"fieldNo": "175261ed-8766-4eff-b3ad-4598c1a6d6c2",
+							"fieldName": "webCam",
+							"fieldParent": "1bc328e9-4aae-48e3-b738-5f47a9486638",
+							"fieldType": "neptune.Script",
+							"script": [
+								"==OBJECT STRING==",
+								"function startWebCam() {",
+								"    var video = document.querySelector(\"#videoElement\");",
+								"",
+								"    if (navigator.mediaDevices.getUserMedia) {",
+								"        navigator.mediaDevices.getUserMedia({",
+								"                video: true",
+								"            })",
+								"            .then(function(stream) {",
+								"                video.srcObject = stream;",
+								"            })",
+								"            .catch(function(error) {",
+								"                console.log(\"Something went wrong!\");",
+								"            });",
+								"    }",
+								"}",
+								""
+							],
+							"request": [],
+							"response": [],
+							"attributes": [],
+							"data": []
+						},
+						{
+							"fieldNo": "397e30c1-6c36-4357-a468-486f360931ae",
+							"fieldName": "btnCancel",
+							"fieldParent": "1bc328e9-4aae-48e3-b738-5f47a9486638",
+							"fieldType": "sap.m.Button",
+							"script": "",
+							"request": [],
+							"response": [],
+							"attributes": [
+								{
+									"attribute": "visible",
+									"grouping": "Properties",
+									"value": true,
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "text",
+									"grouping": "Properties",
+									"value": "Close",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "iconFirst",
+									"grouping": "Properties",
+									"value": true,
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "iconDensityAware",
+									"grouping": "Properties",
+									"value": true,
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "enabled",
+									"grouping": "Properties",
+									"value": true,
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "press",
+									"grouping": "Events",
+									"value": "Anonymous Function",
+									"script": [
+										"==OBJECT STRING==",
+										"imgCam.setSrc();",
+										"diaWebCam.close();",
+										""
+									],
+									"translation": []
+								}
+							],
+							"data": []
+						},
+						{
+							"fieldNo": "bb983caf-6639-4446-9a04-214470817478",
+							"fieldName": "btnSnap",
+							"fieldParent": "1bc328e9-4aae-48e3-b738-5f47a9486638",
+							"fieldType": "sap.m.Button",
+							"script": "",
+							"request": [],
+							"response": [],
+							"attributes": [
+								{
+									"attribute": "visible",
+									"grouping": "Properties",
+									"value": true,
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "text",
+									"grouping": "Properties",
+									"value": "Snap",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "styleClassVisibility",
+									"grouping": "Properties",
+									"value": "sapUiVisibleOnlyOnDesktop",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "iconFirst",
+									"grouping": "Properties",
+									"value": true,
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "iconDensityAware",
+									"grouping": "Properties",
+									"value": true,
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "enabled",
+									"grouping": "Properties",
+									"value": true,
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "press",
+									"grouping": "Events",
+									"value": "Anonymous Function",
+									"script": [
+										"==OBJECT STRING==",
+										"var video = document.getElementById('videoElement');",
+										"var scale = 2;",
+										"var canvas = document.createElement(\"canvas\");",
+										"canvas.width = video.videoWidth * scale;",
+										"canvas.height = video.videoHeight * scale;",
+										"canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);",
+										"// canvas.getContext('2d').drawImage(video, 0, 0, 640, 480);",
+										"",
+										"",
+										"imgCam.setSrc(canvas.toDataURL());",
+										"",
+										"// diaImage.close();",
+										"",
+										"tabs.setSelectedKey('capture');",
+										""
+									],
+									"translation": []
+								}
+							],
+							"data": []
+						},
+						{
+							"fieldNo": "3e2d2f82-d9a9-40b1-d01d-20848ea2c8a9",
+							"fieldName": "diaWebCam",
+							"fieldParent": "1bc328e9-4aae-48e3-b738-5f47a9486638",
+							"fieldType": "sap.m.Dialog",
+							"script": "",
+							"request": [],
+							"response": [],
+							"attributes": [
+								{
+									"attribute": "verticalScrolling",
+									"grouping": "Properties",
+									"value": true,
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "title",
+									"grouping": "Properties",
+									"value": "Capture Image",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "showHeader",
+									"grouping": "Properties",
+									"value": true,
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "horizontalScrolling",
+									"grouping": "Properties",
+									"value": true,
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "contentWidth",
+									"grouping": "Properties",
+									"value": "60%",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "contentHeight",
+									"grouping": "Properties",
+									"value": "60%",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "beforeOpen",
+									"grouping": "Events",
+									"value": "Anonymous Function",
+									"script": [
+										"==OBJECT STRING==",
+										"startWebCam();",
+										"tabs.setSelectedKey('live');"
+									],
+									"translation": []
+								},
+								{
+									"attribute": "endButton",
+									"grouping": "Associations",
+									"value": "btnCancel",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "beginButton",
+									"grouping": "Associations",
+									"value": "btnSnap",
+									"script": "",
+									"translation": []
+								}
+							],
+							"data": [
+								{
+									"fieldNo": "c36eca7b-ddfe-48e4-8afc-70f308670285",
+									"fieldName": "tabs",
+									"fieldParent": "3e2d2f82-d9a9-40b1-d01d-20848ea2c8a9",
+									"fieldType": "sap.m.IconTabBar",
+									"script": "",
+									"request": [],
+									"response": [],
+									"attributes": [],
+									"data": [
+										{
+											"fieldNo": "e4ce73cc-3f0b-4af5-d7bf-16e48127c39d",
+											"fieldName": "tbaLiveImage",
+											"fieldParent": "c36eca7b-ddfe-48e4-8afc-70f308670285",
+											"fieldType": "sap.m.IconTabFilter",
+											"script": "",
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "tooltip",
+													"grouping": "Properties",
+													"value": "Live Preview",
+													"script": "",
+													"translation": []
+												},
+												{
+													"attribute": "key",
+													"grouping": "Properties",
+													"value": "live",
+													"script": "",
+													"translation": []
+												},
+												{
+													"attribute": "icon",
+													"grouping": "Properties",
+													"value": "sap-icon://fa-solid/video",
+													"script": "",
+													"translation": []
+												}
+											],
+											"data": [
+												{
+													"fieldNo": "b75a54b6-fb6f-487f-dd31-b0ba0c7b6b57",
+													"fieldName": "htmlsArea",
+													"fieldParent": "e4ce73cc-3f0b-4af5-d7bf-16e48127c39d",
+													"fieldType": "sap.ui.core.HTML",
+													"script": "",
+													"request": [],
+													"response": [],
+													"attributes": [
+														{
+															"attribute": "visible",
+															"grouping": "Properties",
+															"value": true,
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "preferDOM",
+															"grouping": "Properties",
+															"value": true,
+															"script": "",
+															"translation": []
+														}
+													],
+													"data": [
+														{
+															"fieldNo": "01705537-fca9-419e-9e9c-11341d19622f",
+															"fieldName": "htmlVideo",
+															"fieldParent": "b75a54b6-fb6f-487f-dd31-b0ba0c7b6b57",
+															"fieldType": "neptune.Html",
+															"script": [
+																"==OBJECT STRING==",
+																"<video autoplay=\"true\" id=\"videoElement\"></video>",
+																""
+															],
+															"request": [],
+															"response": [],
+															"attributes": [],
+															"data": []
+														}
+													]
+												}
+											]
+										},
+										{
+											"fieldNo": "01eca579-b683-4bbd-a400-2ff64086bf58",
+											"fieldName": "tabImageCapture",
+											"fieldParent": "c36eca7b-ddfe-48e4-8afc-70f308670285",
+											"fieldType": "sap.m.IconTabFilter",
+											"script": "",
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "tooltip",
+													"grouping": "Properties",
+													"value": "Captured Image",
+													"script": "",
+													"translation": []
+												},
+												{
+													"attribute": "key",
+													"grouping": "Properties",
+													"value": "capture",
+													"script": "",
+													"translation": []
+												},
+												{
+													"attribute": "icon",
+													"grouping": "Properties",
+													"value": "sap-icon://fa-solid/film",
+													"script": "",
+													"translation": []
+												}
+											],
+											"data": [
+												{
+													"fieldNo": "88074166-d90b-4998-c023-fd4768f9b740",
+													"fieldName": "imgCam",
+													"fieldParent": "01eca579-b683-4bbd-a400-2ff64086bf58",
+													"fieldType": "sap.m.Image",
+													"script": "",
+													"request": [],
+													"response": [],
+													"attributes": [
+														{
+															"attribute": "width",
+															"grouping": "Properties",
+															"value": "800px",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "visible",
+															"grouping": "Properties",
+															"value": true,
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "mode",
+															"grouping": "Properties",
+															"value": "Background",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "height",
+															"grouping": "Properties",
+															"value": "800px",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "densityAware",
+															"grouping": "Properties",
+															"value": true,
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "decorative",
+															"grouping": "Properties",
+															"value": true,
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "backgroundSize",
+															"grouping": "Properties",
+															"value": "contain",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "backgroundRepeat",
+															"grouping": "Properties",
+															"value": "no-repeat",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "backgroundPosition",
+															"grouping": "Properties",
+															"value": "center center",
+															"script": "",
+															"translation": []
+														}
+													],
+													"data": []
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"fieldNo": 99998,
+			"data": []
+		}
+	],
+	"ver": "22.8.2.1212",
+	"application": "neptbb_webcam_capture",
+	"title": "UTIL",
+	"description": "Capture Image from PC webcam",
+	"enableFileStorage": false,
+	"enableManifest": false,
+	"enableStylesheet": false,
+	"enableObfuscate": false,
+	"onlyRunLaunchpad": false,
+	"disabled": false,
+	"loadLaunchpadCode": null,
+	"loadApplicationCode": null,
+	"appType": "C",
+	"ui5_m": true,
+	"ui5_f": false,
+	"ui5_table": false,
+	"ui5_tnt": false,
+	"ui5_uxap": false,
+	"ui5_chart": false,
+	"ui5_theme": "sap_belize",
+	"ui5_version": "",
+	"ui5_language": null,
+	"cus_theme": "",
+	"css": "",
+	"header": "",
+	"manifest": "",
+	"globalScript": "",
+	"deleted": false,
+	"libHighchart": false,
+	"libHighmap": false,
+	"publicAccess": false,
+	"ui5_bootstrap": false,
+	"apis": []
+}

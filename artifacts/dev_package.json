@@ -1,0 +1,47 @@
+{
+	"id": "553C0E9A-4B12-ED11-BD6E-000D3AB1D9FF",
+	"createdAt": "2022-08-02T10:12:24.493Z",
+	"createdBy": "kristin.eliassen@neptune-software.com",
+	"git": {
+		"targetServers": [],
+		"remote": "https://github.com/neptune-software-marketplace/neptunesoftware-dxp-abb-webcamcapture",
+		"testServers": []
+	},
+	"name": "neptunesoftware-dxp-abb-webcamcapture",
+	"description": null,
+	"ver": "22.8.2.1014",
+	"enableCICD": true,
+	"apps": [
+		{
+			"id": "63AED454-FF5D-4543-8208-4D4E92603CDC",
+			"ver": "22.8.2.1212",
+			"application": "neptbb_webcam_capture",
+			"title": "UTIL",
+			"description": "Capture Image from PC webcam"
+		}
+	],
+	"api": [],
+	"odataMock": [],
+	"odataSource": [],
+	"dictionary": [],
+	"jsclass": [],
+	"jsscript_group": [],
+	"theme": [],
+	"pdf": [],
+	"rulesengine": [],
+	"reports": [],
+	"api_authentication": [],
+	"api_group": [],
+	"tile": [],
+	"category": [],
+	"launchpad": [],
+	"certificates": [],
+	"role": [],
+	"systems": [],
+	"doc": [],
+	"wf_notifications": [],
+	"wf_definition": [],
+	"department": [],
+	"script_scheduler": [],
+	"connector": []
+}
