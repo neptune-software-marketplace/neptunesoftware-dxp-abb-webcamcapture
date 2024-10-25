@@ -1,5 +1,5 @@
 {
-	"id": "553C0E9A-4B12-ED11-BD6E-000D3AB1D9FF",
+	"id": "553c0e9a-4b12-ed11-bd6e-000d3ab1d9ff",
 	"createdAt": "2022-08-02T10:12:24.493Z",
 	"createdBy": "kristin.eliassen@neptune-software.com",
 	"git": {
@@ -13,16 +13,18 @@
 	"enableCICD": true,
 	"apps": [
 		{
-			"id": "63AED454-FF5D-4543-8208-4D4E92603CDC",
-			"ver": "22.8.2.1212",
+			"id": "63aed454-ff5d-4543-8208-4d4e92603cdc",
 			"application": "neptbb_webcam_capture",
 			"title": "UTIL",
-			"description": "Capture Image from PC webcam"
+			"description": "Capture Image from PC webcam",
+			"package": {
+				"id": "553c0e9a-4b12-ed11-bd6e-000d3ab1d9ff"
+			}
 		}
 	],
 	"api": [],
-	"odataMock": [],
 	"odataSource": [],
+	"odataMock": [],
 	"dictionary": [],
 	"jsclass": [],
 	"jsscript_group": [],
@@ -40,8 +42,12 @@
 	"systems": [],
 	"doc": [],
 	"wf_notifications": [],
-	"wf_definition": [],
 	"department": [],
 	"script_scheduler": [],
-	"connector": []
+	"wf_definition": [],
+	"connector": [],
+	"events": [],
+	"code_snippets": [],
+	"wf_determination": [],
+	"wf_taskaction": []
 }

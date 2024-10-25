@@ -1,10 +1,62 @@
 {
 	"id": "63aed454-ff5d-4543-8208-4d4e92603cdc",
 	"createdAt": "2022-02-04T15:51:12.006Z",
-	"updatedAt": "2022-08-02T10:12:36.163Z",
 	"createdBy": "luuk.wosten@neptune-software.com",
-	"changedBy": "kristin.eliassen@neptune-software.com",
 	"objects": [
+		{
+			"fieldNo": "f1add296-2295-40f6-efb0-469ad85d9c50",
+			"fieldName": "App",
+			"fieldParent": 0,
+			"fieldType": "sap.m.App",
+			"script": "",
+			"customComponent": false,
+			"request": [],
+			"response": [],
+			"attributes": [],
+			"data": [
+				{
+					"fieldNo": "e9990b00-28fd-48a0-c163-4b9670b2a027",
+					"fieldName": "Page",
+					"fieldParent": "f1add296-2295-40f6-efb0-469ad85d9c50",
+					"fieldType": "sap.m.Page",
+					"script": "",
+					"customComponent": false,
+					"request": [],
+					"response": [],
+					"attributes": [],
+					"data": [
+						{
+							"fieldNo": "d4e79feb-9656-40ac-ac80-565a69316721",
+							"fieldName": "Button",
+							"fieldParent": "e9990b00-28fd-48a0-c163-4b9670b2a027",
+							"fieldType": "sap.m.Button",
+							"script": "",
+							"customComponent": false,
+							"request": [],
+							"response": [],
+							"attributes": [
+								{
+									"attribute": "press",
+									"grouping": "Events",
+									"value": "Anonymous Function",
+									"script": "file://event/sap.m.Button/Button/press.js",
+									"language": "javascript",
+									"translation": []
+								},
+								{
+									"attribute": "text",
+									"grouping": "Properties",
+									"value": "Open",
+									"script": "",
+									"translation": []
+								}
+							],
+							"data": []
+						}
+					]
+				}
+			]
+		},
 		{
 			"fieldNo": 99999,
 			"data": [
@@ -14,6 +66,7 @@
 					"fieldParent": 99999,
 					"fieldType": "neptune.folder",
 					"script": "",
+					"customComponent": false,
 					"request": [],
 					"response": [],
 					"attributes": [],
@@ -23,20 +76,8 @@
 							"fieldName": "HOW_TO_USE",
 							"fieldParent": "1bc328e9-4aae-48e3-b738-5f47a9486638",
 							"fieldType": "neptune.Script",
-							"script": [
-								"==OBJECT STRING==",
-								"//HOW TO USE THE BUILDING BLOCK",
-								"// OPEN THE DIALOG BOX diaWebCam WITH diaWebCam.open()",
-								"// START THE WEBCAM BY CALLING THE FUNCTION startWebCam()",
-								"// Allow the Permission to access WebCam on Browsers",
-								"",
-								"// LIMITATIONS",
-								"// WORKS on Google Chrome, Firefox, Opera, Safari and Edge",
-								"// DOES NOT WORK on IE 11 and below",
-								"",
-								"// Using Captured Image",
-								"// Image data will be available as Base64 encoded string with the function imgCam.getSrc()"
-							],
+							"script": "file://script/neptune.Script/Webcam/HOW_TO_USE.js",
+							"customComponent": false,
 							"request": [],
 							"response": [],
 							"attributes": [],
@@ -47,25 +88,8 @@
 							"fieldName": "webCam",
 							"fieldParent": "1bc328e9-4aae-48e3-b738-5f47a9486638",
 							"fieldType": "neptune.Script",
-							"script": [
-								"==OBJECT STRING==",
-								"function startWebCam() {",
-								"    var video = document.querySelector(\"#videoElement\");",
-								"",
-								"    if (navigator.mediaDevices.getUserMedia) {",
-								"        navigator.mediaDevices.getUserMedia({",
-								"                video: true",
-								"            })",
-								"            .then(function(stream) {",
-								"                video.srcObject = stream;",
-								"            })",
-								"            .catch(function(error) {",
-								"                console.log(\"Something went wrong!\");",
-								"            });",
-								"    }",
-								"}",
-								""
-							],
+							"script": "file://script/neptune.Script/Webcam/webCam.js",
+							"customComponent": false,
 							"request": [],
 							"response": [],
 							"attributes": [],
@@ -77,6 +101,7 @@
 							"fieldParent": "1bc328e9-4aae-48e3-b738-5f47a9486638",
 							"fieldType": "sap.m.Button",
 							"script": "",
+							"customComponent": false,
 							"request": [],
 							"response": [],
 							"attributes": [
@@ -119,12 +144,7 @@
 									"attribute": "press",
 									"grouping": "Events",
 									"value": "Anonymous Function",
-									"script": [
-										"==OBJECT STRING==",
-										"imgCam.setSrc();",
-										"diaWebCam.close();",
-										""
-									],
+									"script": "file://event/sap.m.Button/btnCancel/press.script",
 									"translation": []
 								}
 							],
@@ -136,6 +156,7 @@
 							"fieldParent": "1bc328e9-4aae-48e3-b738-5f47a9486638",
 							"fieldType": "sap.m.Button",
 							"script": "",
+							"customComponent": false,
 							"request": [],
 							"response": [],
 							"attributes": [
@@ -185,24 +206,7 @@
 									"attribute": "press",
 									"grouping": "Events",
 									"value": "Anonymous Function",
-									"script": [
-										"==OBJECT STRING==",
-										"var video = document.getElementById('videoElement');",
-										"var scale = 2;",
-										"var canvas = document.createElement(\"canvas\");",
-										"canvas.width = video.videoWidth * scale;",
-										"canvas.height = video.videoHeight * scale;",
-										"canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);",
-										"// canvas.getContext('2d').drawImage(video, 0, 0, 640, 480);",
-										"",
-										"",
-										"imgCam.setSrc(canvas.toDataURL());",
-										"",
-										"// diaImage.close();",
-										"",
-										"tabs.setSelectedKey('capture');",
-										""
-									],
+									"script": "file://event/sap.m.Button/btnSnap/press.script",
 									"translation": []
 								}
 							],
@@ -214,6 +218,7 @@
 							"fieldParent": "1bc328e9-4aae-48e3-b738-5f47a9486638",
 							"fieldType": "sap.m.Dialog",
 							"script": "",
+							"customComponent": false,
 							"request": [],
 							"response": [],
 							"attributes": [
@@ -263,11 +268,7 @@
 									"attribute": "beforeOpen",
 									"grouping": "Events",
 									"value": "Anonymous Function",
-									"script": [
-										"==OBJECT STRING==",
-										"startWebCam();",
-										"tabs.setSelectedKey('live');"
-									],
+									"script": "file://event/sap.m.Dialog/diaWebCam/beforeOpen.script",
 									"translation": []
 								},
 								{
@@ -292,6 +293,7 @@
 									"fieldParent": "3e2d2f82-d9a9-40b1-d01d-20848ea2c8a9",
 									"fieldType": "sap.m.IconTabBar",
 									"script": "",
+									"customComponent": false,
 									"request": [],
 									"response": [],
 									"attributes": [],
@@ -302,6 +304,7 @@
 											"fieldParent": "c36eca7b-ddfe-48e4-8afc-70f308670285",
 											"fieldType": "sap.m.IconTabFilter",
 											"script": "",
+											"customComponent": false,
 											"request": [],
 											"response": [],
 											"attributes": [
@@ -334,6 +337,7 @@
 													"fieldParent": "e4ce73cc-3f0b-4af5-d7bf-16e48127c39d",
 													"fieldType": "sap.ui.core.HTML",
 													"script": "",
+													"customComponent": false,
 													"request": [],
 													"response": [],
 													"attributes": [
@@ -358,11 +362,8 @@
 															"fieldName": "htmlVideo",
 															"fieldParent": "b75a54b6-fb6f-487f-dd31-b0ba0c7b6b57",
 															"fieldType": "neptune.Html",
-															"script": [
-																"==OBJECT STRING==",
-																"<video autoplay=\"true\" id=\"videoElement\"></video>",
-																""
-															],
+															"script": "file://script/neptune.Html/htmlVideo.script",
+															"customComponent": false,
 															"request": [],
 															"response": [],
 															"attributes": [],
@@ -378,6 +379,7 @@
 											"fieldParent": "c36eca7b-ddfe-48e4-8afc-70f308670285",
 											"fieldType": "sap.m.IconTabFilter",
 											"script": "",
+											"customComponent": false,
 											"request": [],
 											"response": [],
 											"attributes": [
@@ -410,6 +412,7 @@
 													"fieldParent": "01eca579-b683-4bbd-a400-2ff64086bf58",
 													"fieldType": "sap.m.Image",
 													"script": "",
+													"customComponent": false,
 													"request": [],
 													"response": [],
 													"attributes": [
@@ -494,7 +497,8 @@
 			"data": []
 		}
 	],
-	"ver": "22.8.2.1212",
+	"componentInterface": [],
+	"ver": "24.10.25.1329",
 	"application": "neptbb_webcam_capture",
 	"title": "UTIL",
 	"description": "Capture Image from PC webcam",
@@ -513,11 +517,13 @@
 	"ui5_tnt": false,
 	"ui5_uxap": false,
 	"ui5_chart": false,
-	"ui5_theme": "sap_belize",
+	"ui5_theme": "sap_horizon",
 	"ui5_version": "",
 	"ui5_language": null,
+	"ui5_url": "",
 	"cus_theme": "",
 	"css": "",
+	"compiledCss": null,
 	"header": "",
 	"manifest": "",
 	"globalScript": "",
@@ -526,5 +532,13 @@
 	"libHighmap": false,
 	"publicAccess": false,
 	"ui5_bootstrap": false,
-	"apis": []
+	"ui5_ionic": false,
+	"useV2AppHandler": false,
+	"compilerTarget": 3,
+	"tabWidth": null,
+	"printWidth": null,
+	"generateVersionOnActivation": false,
+	"activationHistoryCount": 0,
+	"apis": [],
+	"package": "553c0e9a-4b12-ed11-bd6e-000d3ab1d9ff"
 }

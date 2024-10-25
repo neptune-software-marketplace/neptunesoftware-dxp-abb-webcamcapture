@@ -1,0 +1,2 @@
+imgCam.setSrc();
+diaWebCam.close();

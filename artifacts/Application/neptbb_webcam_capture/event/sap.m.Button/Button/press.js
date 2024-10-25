@@ -1,0 +1,2 @@
+diaWebCam.open();
+startWebCam()
